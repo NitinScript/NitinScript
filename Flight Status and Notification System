@@ -1,0 +1,122 @@
+## Solution Flight Status and Notifications System
+
+### Overview
+ Design and develop a full-stack application for updating real-time flight status and notifying concerned passengers. This solution should be having at its heart a React.js front end, Python Flask backend, and a MongoDB database and will also be integrated into Airport Systems in fetching mock data and Firebase Cloud Messaging for push notifications.
+
+### Features
+1. **Real-time Updates**:
+- Display the real-time flight status regarding delays, cancellations, and changes in the gate.
+   - From the databases of the airport, refresh the flight status after constant intervals.
+
+2. **Push Notifications**
+  - Deliver notifications of the change in flight status through messages, email, or in-app notifications.
+  - Use Firebase Cloud Messaging for in-app notifications.
+  - Make use of Kafka or RabbitMQ to manage the message queue of notifications.
+
+3. **Integration with Airport Systems**
+   - Pull data from the database to acquire veracious flight details.
+   - Mock data provided by the system itself for development purposes.
+
+### Technologies
+1. **Frontend**
+   - HTML, CSS
+   - React.js
+
+2. **Backend**
+   - Python under Flask framework
+
+3. **Database**
+   - MongoDB
+
+4. **Notifications**
+   - Firebase Cloud Messaging
+   - Kafka or RabbitMQ
+
+### Architecture
+
+1. **Frontend**
+- A React.js application with components to show the flight status and notifications about it
+   - A dashboard in which real-time updates related to various flights are shown
+   - Provision for subscribing to the notifications related to predefined flights
+
+2. **Backend**
+   #- A Flask application to serve the requests for APIs
+   #- Endpoints to fetch flight data and manage user subscriptions.
+- Integrate with Airport System APIs for fetching real-time flight data.
+     - Scheduler to be implemented that fetches regular updates of flight status from airport system APIs and updates the database.
+
+3. **Database**
+   - MongoDB for storing all flights data and user subscriptions
+   - Design an efficient schema for flight information and preferences for the users
+
+4. **Notifications**
+- Develop a microservice in either Kafka or RabbitMQ that will manage the message queues associated with the notification services.
+   - Use Firebase Cloud Messaging to provide push notification to devices.
+   - Other push services like SMS and email notifications.
+
+### How to run it
+1. **Setup Frontend**
+   - Create basic React.js project.
+   - Developed components to present the dashboard, flight status, and notifications.
+- Connect to the backend API to fetch and display data.
+
+2. **Setup Backend**
+   - Build a Flask project.
+   - Build API to get flight data and user subscriptions.
+   - The logic of pulling data from the airport systems and then storing them in MongoDB.
+   - Setting up a scheduler to periodically update the flight data.
+
+3. **Setup Database**
+Setup and install MongoDB.
+Design the database schema for flights and user subscriptions.
+Implement data access methods at the backend.
+
+4. **Setup Notifications**
+Set up Firebase Cloud Messaging for push notifications.
+Set up Kafka or RabbitMQ for message queue handling.
+Set up services to send notifications based on changes in flight status.
+
+GitHub Repository and Readme
+
+1. **Upload Code**
+   - Create a GitHub repository for the project.
+   - Make it public.
+
+2. **Readme File**
+   - Describe the project and its features.
+   - Mention tech stack details (React.js/Flask/MongoDB/Firebase/Kafka or RabbitMQ).
+   - Mention how to set it up and run the application.
+Test and deploy applications with instructions.
+
+### Example Code Structure
+
+```plaintext
+flight-status-notifications/
+│
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── App.js
+│   │   ├── index.js
+│   │   └── .
+│   └── package.json
+│
+├── backend/
+│   ├── app/
+│   │   ├── __init__.py
+│   │   ├── routes.py
+│   │   ├── models.py
+│   │   └── .
+│   ├── config.py
+│   ├── run.py
+│   └── requirements.txt
+│
+├── database/
+│   └── schema/
+│       └── flight_data.json
+│
+└── README.md
+```
+
+This provides a strong, scalable solution for real-time flight status updates and notifications, powered by a modern tech stack and best practices in full-stack development.
